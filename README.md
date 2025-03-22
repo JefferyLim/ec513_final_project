@@ -5,9 +5,8 @@
 In your home directory, clone the repository. 
 
 ```
-exit # exit the scc-i01 node back to Desktop or scc1
+cd [ec513 user directory]
 git clone -b ec513 git@github.com:JefferyLim/black-parrot-sim.git
-
 ```
 
 You will need to build a docker or singularity image. 
