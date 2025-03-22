@@ -50,3 +50,9 @@ I haven't quite figured out the SDK, but there are example programs here: https:
 # Software 
 
 https://github.com/black-parrot-sdk/black-parrot-sdk#building-the-sdk
+
+
+# Maybe Important Links
+
+https://github.com/black-parrot/black-parrot/blob/master/docs/eval_guide.md
+https://github.com/black-parrot/black-parrot/blob/master/docs/testbench_guide.md
