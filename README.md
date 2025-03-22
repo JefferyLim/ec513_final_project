@@ -18,8 +18,9 @@ You will need to build a docker or singularity image.
 
 ## Building Image
 I've created a Singularity definition file which can be built on SCC for use on the SCC. In order to build, follow the instructions from an scc1 node.
+`ssh scc-i01`
+
 ```
-ssh scc-i01
 mkdir $TMPDIR/$USER
 SING_DIR=$TMPDIR/$USER
 cd $SING_DIR
