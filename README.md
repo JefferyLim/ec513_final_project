@@ -24,7 +24,7 @@ mkdir $TMPDIR/$USER
 SING_DIR=$TMPDIR/$USER
 cd $SING_DIR
 
-git clone -b ec513 git@github.com:JefferyLim/black-parrot-sim.git
+git clone -b ec513 https://github.com/JefferyLim/black-parrot-sim
 cd black-parrot-sim
 
 make singularity-image
