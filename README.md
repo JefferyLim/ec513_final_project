@@ -41,3 +41,6 @@ Instead, you could submit a batch job to SCC to have it build. There are scripts
 I haven't quite figured out the SDK, but there are example programs here: https://github.com/black-parrot-sdk/bp-demos/tree/ffcb9d9d8365d686f9b10e7491187654c9e0f4f7
 
 
+# Software 
+
+https://github.com/black-parrot-sdk/black-parrot-sdk#building-the-sdk
