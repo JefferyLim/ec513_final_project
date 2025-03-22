@@ -25,7 +25,7 @@ exit # exit the scc-i01 node back to Desktop or scc1
 git clone -b ec513 git@github.com:JefferyLim/black-parrot-sim.git
 `
 
-If you are on a Desktop node, you can run `make singularity-run` and then follow the  https://github.com/JefferyLim/black-parrot-sim/tree/ec513#tire-kick in the black-parrot-sim repo. Keep in mind, you cannot do this on the scc1 login node, and it must be a desktop node or job.
+If you are on a Desktop node, you can run `make singularity-run` and then follow the [instructions](https://github.com/JefferyLim/black-parrot-sim/tree/ec513#tire-kick) in the black-parrot-sim repo. Keep in mind, you cannot do this on the scc1 login node, and it must be a desktop node or job.
 
 Instead, you could submit a batch job to SCC to have it build. There are scripts already in the scc directory to do this.
 
