@@ -31,7 +31,8 @@ cd black-parrot-sim
 make singularity-image
 ```
 
-This will produce `black-parrot-sim.sif` file in the `docker` directory, which is the singularity image file. Copy this file to the repo in your ec513 directory. You will need this when you begin building black-parrot-sim and running simulations.
+
+This will produce `black-parrot-sim.sif` file in the `docker` directory, which is the singularity image file. Copy this file to the repo in your ec513 directory. `cp [Location of your black-parrot-sim repo]/docker` You will need this when you begin building black-parrot-sim and running simulations.
 
 ## Prepping 
 
