@@ -11,8 +11,7 @@ git clone -b ec513 git@github.com:JefferyLim/black-parrot-sim.git
 If you don't have SSH keys installed:
 ```
 cd [ec513 user directory]
-git clone -b ec513 github.com/JefferyLim/black-parrot-sim
-
+git clone -b ec513 https://github.com/JefferyLim/black-parrot-sim
 ```
 
 You will need to build a docker or singularity image. 
