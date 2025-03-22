@@ -1,8 +1,7 @@
 # ec513_final_project
 
 # Building Image
-I've created a Singularity definition file which can be built on SCC for use on the SCC. In order to build, follow the instructions:
-
+I've created a Singularity definition file which can be built on SCC for use on the SCC. In order to build, follow the instructions from an scc1 node.
 ```
 ssh scc-i01
 mkdir $TMPDIR/$USER
@@ -22,6 +21,7 @@ This will produce `black-parrot-sim.sif` file, which is the singularity image fi
 In your home directory, clone the repository. 
 
 `
+exit # exit the scc-i01 node back to Desktop or scc1
 git clone -b ec513 git@github.com:JefferyLim/black-parrot-sim.git
 `
 
