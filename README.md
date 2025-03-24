@@ -60,3 +60,23 @@ Traces are done now by TAG=[TRACE NAME]
 https://github.com/black-parrot/black-parrot/blob/master/docs/eval_guide.md
 
 https://github.com/black-parrot/black-parrot/blob/master/docs/testbench_guide.md
+
+# Tracers
+
+Some notes on tracers:
+There is an trace called `i_cache_trace_p`
+
+You can find it as a parameter in the [testbench.sv](https://github.com/black-parrot/black-parrot/blob/45a28bf96e58f55687f8e09b2521ceada121ad95/bp_top/test/tb/bp_tethered/testbench.sv#L27)
+
+You can find it used in this declaration of [bp_fe_nonsynth_icache_tracer](https://github.com/black-parrot/black-parrot/blob/45a28bf96e58f55687f8e09b2521ceada121ad95/bp_top/test/tb/bp_tethered/testbench.sv#L351)
+
+I'm unfamiliar with bind, but I assume it somehow creates both the bp_fe_icache and bp_fe_nonsynth_icache_tracer at the same time.
+
+The tracer is found [here](https://github.com/black-parrot/black-parrot/blob/45a28bf96e58f55687f8e09b2521ceada121ad95/bp_fe/test/common/bp_fe_nonsynth_icache_tracer.sv#L5). It's simply just writes the input/outputs to a file using ` $fwrite`. It seems like if we want to "peek" inside the module, we will have to add new output ports to read internal parameters in the module
+
+# Privilege Modes
+
+We found the [CSR](https://github.com/JefferyLim/black-parrot/blob/45a28bf96e58f55687f8e09b2521ceada121ad95/bp_be/src/v/bp_be_calculator/bp_be_csr.sv#L74) that tells us if we're in privilege or non-privilege mode. There's 3 modes (Machine, Supervisor, User). It seems like the instruction "mret" or "sret" gets us into user mode, but that's as far as we've seen.  The location of the csr is along the execution pipelines, under the system pipeline.
+
+I found some code that looks like it does things with privilege modes: https://github.com/black-parrot-sdk/bp-tests/blob/master/src/misaligned_instructions_virtual_memory.c
+
