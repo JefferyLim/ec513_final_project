@@ -20,6 +20,15 @@ You will need to build a docker or singularity image.
 I've created a Singularity definition file which can be built on SCC for use on the SCC. In order to build, follow the instructions from an scc1 node.
 `ssh scc-i01`
 
+SCC suggests that we build in a scratch directory in `/scratch/$USER`, but I was able to build the singularity image in the course directory.
+
+```
+cd black-parrot-sim
+make singularity-image
+```
+
+If you're unable to do this, just clone the repo in a scratch directory as so:
+
 ```
 mkdir $TMPDIR/$USER
 SING_DIR=$TMPDIR/$USER
