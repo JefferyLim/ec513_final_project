@@ -62,6 +62,7 @@ https://github.com/black-parrot/black-parrot/blob/master/docs/eval_guide.md
 https://github.com/black-parrot/black-parrot/blob/master/docs/testbench_guide.md
 
 # Tracers
+To enable tracers, use the [TRACER_NAME]_P=1 when you invoke the make command.
 
 Some notes on tracers:
 There is an trace called `i_cache_trace_p`
