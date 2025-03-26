@@ -44,12 +44,24 @@ Instead, you could submit a batch job to SCC to have it build. There are scripts
 
 # Running 
 
-I haven't quite figured out the SDK, but there are example programs here: https://github.com/black-parrot-sdk/bp-tests
+`make -C black-parrot/bp_top/syn build_dump.verilator sim_dump.verilator TAG=[unique name] [TRACE_NAME_P]=1`
 
+One thing I've noticed is that you might need to use a new TAG if you change the basis of the settings. Like if you add a new trace, you will have to use a new tag to build into a new directory. 
+
+List of existing TRACE_NAME_P:
+
+https://github.com/black-parrot/black-parrot/blob/master/docs/testbench_guide.md#testbench-helper-modules
+
+
+# Waveform Dump
+
+Download [GTKWave](https://gtkwave.sourceforge.net/) or [Surfer](https://surfer-project.org/)
 
 # Software 
 
 https://github.com/black-parrot-sdk/black-parrot-sdk#building-the-sdk
+
+I haven't quite figured out the SDK, but there are example programs here: https://github.com/black-parrot-sdk/bp-tests
 
 # Important Discoveries
 
