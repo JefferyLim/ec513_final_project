@@ -102,3 +102,9 @@ We found the [CSR](https://github.com/JefferyLim/black-parrot/blob/45a28bf96e58f
 
 I found some code that looks like it does things with privilege modes: https://github.com/black-parrot-sdk/bp-tests/blob/master/src/misaligned_instructions_virtual_memory.c
 
+
+
+# Dump RISC-V Code
+
+`/projectnb/ec513/students/jjlim/final/black-parrot-sim/black-parrot-sdk/install/bin/riscv64-unknown-elf-dramfs-objdump ` You can use objdump to read the `prog.riscv` to see the riscv insructions
+
