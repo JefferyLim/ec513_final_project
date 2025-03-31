@@ -1,5 +1,12 @@
 # ec513_final_project
 
+Using the forked versions of the repos:
+
+[Black-Parrot](https://github.com/JefferyLim/black-parrot)
+[Black-Parrot-Sim](https://github.com/JefferyLim/black-parrot-sim)
+
+
+
 # Building Black-Parrot-Sim
 
 In your home directory, clone the repository. 
