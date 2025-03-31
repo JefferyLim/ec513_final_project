@@ -80,9 +80,7 @@ https://github.com/black-parrot-sdk/black-parrot-sdk#building-the-sdk
 
 I haven't quite figured out the SDK, but there are example programs here: https://github.com/black-parrot-sdk/bp-tests
 
-# Important Discoveries
 
-Traces are done now by TAG=[TRACE NAME]
 
 # Maybe Important Links
 
