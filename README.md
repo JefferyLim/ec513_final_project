@@ -2,9 +2,9 @@
 
 Using the forked versions of the repos:
 
-[Black-Parrot](https://github.com/JefferyLim/black-parrot)
+[Black-Parrot](https://github.com/JefferyLim/black-parrot/tree/ec513)
 
-[Black-Parrot-Sim](https://github.com/JefferyLim/black-parrot-sim)
+[Black-Parrot-Sim](https://github.com/JefferyLim/black-parrot-sim/tree/ec513)
 
 
 
