@@ -4,6 +4,7 @@ In your black-parrot-sim repo:
 
 ```
 cd black-parrot/
+git pull
 git checkout [arch_trace/uarch_trace/cache_trace]
 ```
 
@@ -37,3 +38,13 @@ The singularity image should add it to the path, but if it can't find `riscv64-u
 You don't have to add the [UARCH/ARCH/CACHE]_TRACE_P=1 flags because they are set to 1 by default.
 
 `make -C black-parrot/bp_top/syn build_dump.verilator sim_dump.verilator`
+
+# Commiting Code
+ 
+We only have a local copy of black-parrot and black-parrot-sim. You should be able to git add the changes with:
+
+```
+git add -u
+git commit
+git push
+```
