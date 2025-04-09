@@ -30,6 +30,8 @@ You can do an objdump of the `prog.riscv` file inside the verilator results file
 
 `black-parrot-sim/black-parrot-sdk/install/bin/riscv64-unknown-elf-dramfs-objdump -S [binary]`
 
+You can add it to your path by running `export PATH=$PATH:black-parrot-sdk/install/bin/` from the black-parrot-sim root directory.
+
 # Running Simulations
 
 You don't have to add the [UARCH/ARCH/CACHE]_TRACE_P=1 flags because they are set to 1 by default.
