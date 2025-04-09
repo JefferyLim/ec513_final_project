@@ -11,6 +11,7 @@ git checkout [arch_trace/uarch_trace/cache_trace]
 Make changes to:
 
 `bp_top/test/common/bp_nonsynth_[arch/uarch/cache]_tracer.sv`
+
 `bp_top/test/tb/bp_tethered/testbench.sv`
 
 # Writing New Code
@@ -35,9 +36,13 @@ The singularity image should add it to the path, but if it can't find `riscv64-u
 
 # Running Simulations
 
-You don't have to add the [UARCH/ARCH/CACHE]_TRACE_P=1 flags because they are set to 1 by default.
+You don't have to add the [UARCH/ARCH/CACHE]_TRACE_P=1 flags because they are set to 1 by default. Use a unique TAG name for every test.
 
-`make -C black-parrot/bp_top/syn build_dump.verilator sim_dump.verilator`
+`make -C black-parrot/bp_top/syn build_dump.verilator sim_dump.verilator TAG=[custom name] PROG=[PROG NAME]`
+
+You can find the results here: `black-parrot-sim/black-parrot/bp_top/syn/results/verilator`
+
+The tests will be located in a file named: `bp_tethered.e_bp_default_cfg.[TAG].sim.bp-tests.[PROG NAME]`
 
 # Commiting Code
  
