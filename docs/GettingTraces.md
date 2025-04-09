@@ -30,7 +30,7 @@ You can do an objdump of the `prog.riscv` file inside the verilator results file
 
 `black-parrot-sim/black-parrot-sdk/install/bin/riscv64-unknown-elf-dramfs-objdump -S [binary]`
 
-You can add it to your path by running `export PATH=$PATH:black-parrot-sdk/install/bin/` from the black-parrot-sim root directory.
+The singularity image should add it to the path, but if it can't find `riscv64-unknown-elf-dramfs-objdump`, you can manually add the path: `export PATH=$PATH:black-parrot-sdk/install/bin/` 
 
 # Running Simulations
 
