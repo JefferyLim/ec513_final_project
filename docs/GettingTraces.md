@@ -35,7 +35,7 @@ You don't have to add the [UARCH/ARCH/CACHE]_TRACE_P=1 flags because they are se
 
 You can find the results here: `black-parrot-sim/black-parrot/bp_top/syn/results/verilator`
 
-The tests will be located in a file named: `bp_tethered.e_bp_default_cfg.[TAG].sim.bp-tests.[PROG NAME]`
+The tests will be located in a directory named: `bp_tethered.e_bp_default_cfg.[TAG].sim.bp-tests.[PROG NAME]`
 
 ## Looking at the Assembly
 
