@@ -3,6 +3,7 @@
 In your black-parrot-sim repo:
 
 ```
+git pull
 cd black-parrot/
 git pull
 git checkout [arch_trace/uarch_trace/cache_trace]
@@ -26,14 +27,6 @@ or from the root repo directory:
 
 `make -C black-parrot-sdk rebuild.bp-tests`
 
-## Looking at the Assembly
-
-You can do an objdump of the `prog.riscv` file inside the verilator results file. The objdump binary is located in:
-
-`black-parrot-sim/black-parrot-sdk/install/bin/riscv64-unknown-elf-dramfs-objdump -S [binary]`
-
-The singularity image should add it to the path, but if it can't find `riscv64-unknown-elf-dramfs-objdump`, you can manually add the path: `export PATH=$PATH:black-parrot-sdk/install/bin/` 
-
 # Running Simulations
 
 You don't have to add the [UARCH/ARCH/CACHE]_TRACE_P=1 flags because they are set to 1 by default. Use a unique TAG name for every test.
@@ -44,6 +37,19 @@ You can find the results here: `black-parrot-sim/black-parrot/bp_top/syn/results
 
 The tests will be located in a file named: `bp_tethered.e_bp_default_cfg.[TAG].sim.bp-tests.[PROG NAME]`
 
+## Looking at the Assembly
+
+You can do an objdump of the `prog.riscv` file inside the verilator results file: 
+
+`riscv64-unknown-elf-dramfs-objdump -S prog.riscv > [any file name]` to get the objdump of the binary.
+
+The objdump binary is located in:
+
+`black-parrot-sim/black-parrot-sdk/install/bin/riscv64-unknown-elf-dramfs-objdump -S [binary]`
+
+The singularity image should add it to the path, but if it can't find `riscv64-unknown-elf-dramfs-objdump`, you can manually add the path: `export PATH=$PATH:black-parrot-sdk/install/bin/` 
+
+
 # Commiting Code
  
 We only have a local copy of black-parrot and black-parrot-sim. You should be able to git add the changes with:
@@ -53,3 +59,4 @@ git add -u
 git commit
 git push
 ```
+
