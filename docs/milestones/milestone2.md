@@ -22,6 +22,7 @@ We do not have a way of determining if an address is a privileged location unles
 ## Tracers
 
 ### uarch_tracer
+- A cycle counter to synchronize with other tracers
 - Track issue, and dispatch packets (packets that enter the BE's scheduler and leave the issue queue)
 - Track when instructions are squashed (poison_isd_i, commit_pkt.npc_w_v)
 - Track committed packets that cause an exception 
