@@ -13,8 +13,9 @@ https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c
 
 We've been able to successfully cause exceptions to occur due to a user program attempting to read memory from an unprivileged area of memory. We should be able to track:
 
-1. Memory accesses and their privilege levels
+1. Architectural memory reads and their privilege levels
 2. Detection of unprivileged accesses
+3. Track what read information gets retreived from cache
 
 We do not have a way of determining if an address is a privileged location unless we already know ahead of time.
 
@@ -23,7 +24,7 @@ We do not have a way of determining if an address is a privileged location unles
 ### uarch_tracer
 - Track issue, and dispatch packets (packets that enter the BE's scheduler and leave the issue queue)
 - Track when instructions are squashed (poison_isd_i, commit_pkt.npc_w_v)
-- Track committed packets that cause an exception
+- Track committed packets that cause an exception 
 - Track page faults that occur (from the memory pipeline)
 - Track priv faults that occur (from the page table walker)
 - Track privilege modes (m, s, u)
