@@ -18,6 +18,19 @@ We've been able to successfully cause exceptions to occur due to a user program 
 
 We do not have a way of determining if an address is a privileged location unless we already know ahead of time.
 
+## Tracers
+
+### uarch_tracer
+- Track issue, and dispatch packets (packets that enter the BE's scheduler and leave the issue queue)
+- Track when instructions are squashed (poison_isd_i, commit_pkt.npc_w_v)
+- Track committed packets that cause an exception
+- Track page faults that occur (from the memory pipeline)
+- Track priv faults that occur (from the page table walker)
+- Track privilege modes (m, s, u)
+
+### cache_tracer
+
+
 ## Code
 
 We've created a [virtual_memory.c](https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c) program that maps pages and sets the privilege level (User or Supervisor level). It's very simple for now, but has proven to work for our needs.
