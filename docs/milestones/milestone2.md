@@ -31,7 +31,24 @@ We do not have a way of determining if an address is a privileged location unles
 - Track privilege modes (m, s, u)
 
 ### cache_tracer
+Data Cache:
+cache_req_v_o: indicates a cache miss or uncached request is being sent out to the next level - LCE
+cache_req_yumi_i: signals that the LCE has accepted the outgoing request from cache_req_v_o
+cache_req_metadata_v_o: valid signal for metadata (like replacement way, dirty status) being sent out on a miss.  potentially interesting for info about the cache's internal state 
+data_mem_pkt_v_i: signals an incoming request from the LCE/engine, typically for filling data on a miss or handling writebacks/evictions.
+data_mem_pkt_yumi_o: indicates the dcache has accepted the incoming data memory request from data_mem_pkt_v_i.
+stat_mem_pkt_v_i: signals an incoming request from the LCE/engine to read or modify the status memory (LRU, dirty bits). (external actions manipulating LRU might be found here)
+stat_mem_pkt_yumi_o: Indicates the dcache has accepted the incoming status memory request from stat_mem_pkt_v_i. Timing reflects readiness to handle state updates
+wbuf_v_li indicates a store hit is being written into the write buffer. maybe look for delays/potential bypass scenarios, affecting later load/store timing
+wbuf_v_lo: indicates a buffered store is ready to be written from the write buffer into the actual data memory
+wbuf_yumi_li : marks write buffer entry wbuf_v_lo completed
 
+Icache:
+icache_pkt_i: carries the incoming fetch request, including the virtual address (.vaddr) and crucially the speculation flag (.spec). tells you if and what address is being requested speculatively.
+data_o: holds the instruction data returned on a hit
+cache_req_o: contains the request sent to the next level cache/memory on a miss or uncached access. shows if a speculative access that missed might have propagated
+data_mem_pkt_i: takes fill data coming back from the cache engine. confirms that a cache line was allocated/filled. maybe keep an eye for a speculative miss case.
+tag_mem_pkt_i:  tag and state updates coming back from the cache engine. it signals a state change possibly triggered speculatively?
 
 ## Code
 
