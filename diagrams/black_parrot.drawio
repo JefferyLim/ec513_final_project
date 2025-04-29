@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2" pages="7">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2" pages="8">
   <diagram name="Top Level" id="gSaMj9r_bIgpUZWunbMq">
     <mxGraphModel dx="2068" dy="1201" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -1109,20 +1109,15 @@
     </mxGraphModel>
   </diagram>
   <diagram id="FcSw0kOjeuOfoiHGe-0l" name="Privilege Fault">
-    <mxGraphModel dx="1426" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1680" dy="989" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="q7ZlQVfc987CqGFjz3qi-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="q7ZlQVfc987CqGFjz3qi-1" target="q7ZlQVfc987CqGFjz3qi-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="q7ZlQVfc987CqGFjz3qi-4" value="ld/st" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="q7ZlQVfc987CqGFjz3qi-3">
-          <mxGeometry x="-0.0299" y="-1" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-1" value="Scheduler" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
-          <mxGeometry x="90" y="100" width="180" height="200" as="geometry" />
+          <mxGeometry x="90" y="100" width="220" height="200" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q7ZlQVfc987CqGFjz3qi-2" target="q7ZlQVfc987CqGFjz3qi-5">
           <mxGeometry relative="1" as="geometry" />
@@ -1153,17 +1148,17 @@
         <mxCell id="q7ZlQVfc987CqGFjz3qi-5" value="System Pipeline" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
           <mxGeometry x="640" y="380" width="140" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="q7ZlQVfc987CqGFjz3qi-11" value="Page Table Reads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q7ZlQVfc987CqGFjz3qi-7" target="q7ZlQVfc987CqGFjz3qi-1">
-          <mxGeometry x="0.3684" y="36" relative="1" as="geometry">
+        <mxCell id="q7ZlQVfc987CqGFjz3qi-11" value="Page Table Reads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="q7ZlQVfc987CqGFjz3qi-7" target="q7ZlQVfc987CqGFjz3qi-1">
+          <mxGeometry x="0.0909" y="10" relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="240" y="250" />
+              <mxPoint x="240" y="200" />
               <mxPoint x="240" y="200" />
             </Array>
-            <mxPoint x="-30" y="16" as="offset" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="q7ZlQVfc987CqGFjz3qi-7" value="PTW" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
-          <mxGeometry x="135" y="225" width="90" height="50" as="geometry" />
+        <mxCell id="q7ZlQVfc987CqGFjz3qi-7" value="PTW (Page Table Walker)" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+          <mxGeometry x="110" y="175" width="90" height="50" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q7ZlQVfc987CqGFjz3qi-1" target="q7ZlQVfc987CqGFjz3qi-7">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -1171,12 +1166,11 @@
             <mxPoint x="150" y="150" as="targetPoint" />
             <Array as="points">
               <mxPoint x="110" y="200" />
-              <mxPoint x="110" y="250" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-12" value="MMU" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
-          <mxGeometry x="569.83" y="175" width="50.17" height="50" as="geometry" />
+          <mxGeometry x="569.74" y="175" width="50.17" height="50" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="q7ZlQVfc987CqGFjz3qi-2" target="q7ZlQVfc987CqGFjz3qi-12">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -1190,14 +1184,14 @@
             <mxPoint x="594.8299999999999" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="q7ZlQVfc987CqGFjz3qi-15" value="1. Memory Inst Dispatched" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="310" y="158" width="170" height="30" as="geometry" />
+        <mxCell id="q7ZlQVfc987CqGFjz3qi-15" value="1. Memory Inst Dispatched (ld/st)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="315" y="130" width="200" height="30" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-16" value="2. MMU checks TLB" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="679.9999999999999" y="175" width="130" height="30" as="geometry" />
+          <mxGeometry x="664.8299999999999" y="175" width="130" height="30" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-18" value="3. TLB Miss (Exception)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="619.9999999999999" y="285" width="150" height="30" as="geometry" />
+          <mxGeometry x="589.9999999999999" y="315" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-19" value="CSR" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
           <mxGeometry x="680" y="420" width="50.17" height="50" as="geometry" />
@@ -1206,16 +1200,63 @@
           <mxGeometry x="779.9999999999999" y="430" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-21" value="5. Page Table Walker initiates walk" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="109.99999999999989" y="315" width="210" height="30" as="geometry" />
+          <mxGeometry x="69.99999999999989" y="315" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-22" value="6. Memory Inst Dispatched for PTW" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="300" y="220" width="210" height="30" as="geometry" />
+          <mxGeometry x="310" y="160" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-23" value="7. Send PTW read address and data from dcache" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="269.99999999999994" y="450" width="290" height="30" as="geometry" />
         </mxCell>
         <mxCell id="q7ZlQVfc987CqGFjz3qi-26" value="8. PTW determines privilege faults, otherwise, TLB Fill" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="109.99999999999989" y="345" width="310" height="30" as="geometry" />
+          <mxGeometry x="69.99999999999989" y="345" width="310" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="OEHgaWofTR-byT5ZXfdL" name="Co-Simulation">
+    <mxGraphModel dx="1190" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1Al8bsjop0fqvJ_nw2Pv-2" target="1Al8bsjop0fqvJ_nw2Pv-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-2" value="Dromajo&lt;br&gt;RISC-V RV64GC&lt;br&gt;Emulator&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1Al8bsjop0fqvJ_nw2Pv-3" target="1Al8bsjop0fqvJ_nw2Pv-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-3" value="Verilator&lt;div&gt;&lt;span style=&quot;-webkit-line-clamp:6&quot; id=&quot;_ROcQaNGsIZDbptQP64W94Ac_155&quot; class=&quot;wtBS9&quot;&gt;Cycle-Accurate Behavioral Model&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1Al8bsjop0fqvJ_nw2Pv-4" target="1Al8bsjop0fqvJ_nw2Pv-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-4" value="RTL Design" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1Al8bsjop0fqvJ_nw2Pv-5" target="1Al8bsjop0fqvJ_nw2Pv-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-5" value="Software" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1Al8bsjop0fqvJ_nw2Pv-6" target="1Al8bsjop0fqvJ_nw2Pv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1Al8bsjop0fqvJ_nw2Pv-6" target="1Al8bsjop0fqvJ_nw2Pv-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-6" value="riscv compiler" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="90" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-13" value="&lt;span style=&quot;font-family: &amp;quot;gg mono&amp;quot;, &amp;quot;Source Code Pro&amp;quot;, Consolas, &amp;quot;Andale Mono WT&amp;quot;, &amp;quot;Andale Mono&amp;quot;, &amp;quot;Lucida Console&amp;quot;, &amp;quot;Lucida Sans Typewriter&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Bitstream Vera Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;Nimbus Mono L&amp;quot;, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0); font-size: 10px;&quot;&gt;0x0000000080400000 &amp;lt;- address of &quot;secret&quot;&lt;br&gt;0x000000008badf00d &amp;lt;- value of our &quot;secret&quot;&lt;br&gt;Executing user program&lt;br&gt;0x000000008badf00d &amp;lt;- user program can read secret&lt;br&gt;0x00000000deadbeef &amp;lt;- user program changes secret&lt;br&gt;Changing page table entry &amp;lt;- mysterious event changes PTE&lt;br&gt;priv page fault &amp;lt;- User fails to read&lt;br&gt;pc: 0x00000000800002f8&lt;br&gt;cause: 0x000000000000000d&lt;br&gt;tval: 0x0000000080400000&lt;/font&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=default;textShadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="1Al8bsjop0fqvJ_nw2Pv-14" value="&lt;font face=&quot;gg mono, Source Code Pro, Consolas, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Monaco, Courier New, Courier, monospace&quot;&gt;&lt;span style=&quot;font-size: 10px; white-space-collapse: preserve;&quot;&gt;0x0000000080400000 &amp;lt;- address of &quot;secret&quot;&lt;br&gt;0x000000008badf00d &amp;lt;- value of our &quot;secret&quot;&lt;br&gt;Executing user program&lt;br&gt;0x000000008badf00d &amp;lt;- user program can read secret&lt;br&gt;0x00000000deadbeef &amp;lt;- user program changes secret&lt;br&gt;Changing page table entry &amp;lt;- mysterious event changes PTE&lt;br&gt;0x00000000deadbeef &amp;lt;- user program can read again&lt;br&gt;0x0000000099999999 &amp;lt;- user program changes secret&lt;/span&gt;&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;labelBackgroundColor=default;textShadow=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="280" width="325" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
