@@ -1,12 +1,8 @@
-# Milestone 2
+# Milestone 3
 
 # Relevant Commits
 
 Here are the contributions to this milestone.
-
-https://github.com/JefferyLim/black-parrot/pull/2
-
-https://github.com/JefferyLim/black-parrot/pull/3
 
 https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c
 
@@ -22,6 +18,8 @@ We've been able to successfully cause exceptions to occur due to a user program 
 We do not have a way of determining if an address is a privileged location unless we already know ahead of time.
 
 ## Tracers
+
+We've combined the tracers into a single file in order to better understand the flow. Originally, we were going to have separate tracers, but decided that we can just combine them within the SystemVerilog file. 
 
 ### uarch_tracer
 - A cycle counter to synchronize with other tracers
@@ -54,7 +52,15 @@ We do not have a way of determining if an address is a privileged location unles
 
 ## Code
 
-We've created a [virtual_memory.c](https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c) program that maps pages and sets the privilege level (User or Supervisor level). It's very simple for now, but has proven to work for our needs.
+Last milestone, we created a [virtual_memory.c](https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c) program that maps pages and sets the privilege level (User or Supervisor level). We've cleaned it up and updated it.
+
+## Finding Vulnerabilities and Example Traces
+
+So far, we have been unable to generate any trace where we can see microarchitectural changes due to branch mispredictions. 
+
+## Finding Anything Interesting
+
+We actually have found one interesting behavior where the Dromajo emulator and the verilator simulation shows different behavior. It's quite interesting because it is an example of buggy software. Dromajo shows that a privilege fault should occur, but the verilator simulation does not show that. We will be going over this example in our presentation.
 
 ## Understanding of Faults
 
