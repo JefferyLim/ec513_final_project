@@ -48,20 +48,23 @@ One other thing we did not discuss in thel ast milestone are the other tracer fi
 - Track committed packets that cause an exception 
 - Track page faults that occur (from the memory pipeline)
 - Track priv faults that occur (from the page table walker)
+- Track whenever page table walks occur
+- Track when pipelines are flushed (commit_pkt.npc_w_v)
 - Track privilege modes (m, s, u)
 
 ### DCache traces
 - cache_req_v_o: indicates a cache miss or uncached request is being sent out to the next level - LCE
 - cache_req_yumi_i: signals that the LCE has accepted the outgoing request from cache_req_v_o
-- cache_req_metadata_v_o: valid signal for metadata (like replacement way, dirty status) being sent out on a miss.  potentially interesting for info about the cache's internal state 
 - data_mem_pkt_v_i: signals an incoming request from the LCE/engine, typically for filling data on a miss or handling writebacks/evictions.
 - data_mem_pkt_yumi_o: indicates the dcache has accepted the incoming data memory request from data_mem_pkt_v_i.
+
+We were unable to determine a great way of utilizing the following signals. We hope to see if we can do anything in the next day.
+- cache_req_metadata_v_o: valid signal for metadata (like replacement way, dirty status) being sent out on a miss.  potentially interesting for info about the cache's internal state 
 - stat_mem_pkt_v_i: signals an incoming request from the LCE/engine to read or modify the status memory (LRU, dirty bits). (external actions manipulating LRU might be found here)
 - stat_mem_pkt_yumi_o: Indicates the dcache has accepted the incoming status memory request from stat_mem_pkt_v_i. Timing reflects readiness to handle state updates
 - wbuf_v_li indicates a store hit is being written into the write buffer. maybe look for delays/potential bypass scenarios, affecting later load/store timing
 - wbuf_v_lo: indicates a buffered store is ready to be written from the write buffer into the actual data memory
 - wbuf_yumi_li : marks write buffer entry wbuf_v_lo completed
-
 
 
 ## Code
