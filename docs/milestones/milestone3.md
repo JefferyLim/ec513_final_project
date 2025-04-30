@@ -18,12 +18,32 @@ Ultimately, this is a single issue design. We find out if we've mispredicted a b
 
 ## Tracers
 
-We've combined the tracers into a single file in order to better understand the flow. Originally, we were going to have separate tracers, but decided that we can just combine them within the SystemVerilog file. 
+We've combined the tracers into a single file in order to better understand the flow. Originally, we were going to have separate tracers and a python script to combine them, but decided to write the logic in the tracer file.
+
+One other thing we did not discuss in thel ast milestone are the other tracer files that already exist. We can leverage some of these traces in addition to the ones we've created. We reviewed some of them to determine how useful they are.
+
+* CMT_TRACE_P - prints each committed instruction along with register modifications
+  * Very useful, prints the architectural changes
+* DRAM_TRACE_P - prints each dram access
+  * Very useful, prints the architectural changes
+* NPC_TRACE_P - prints each (speculative) PC executed by the BE
+  * Would be useful if it existed
+* DCACHE_TRACE_P - prints each load/store
+  * Very useful, can be used to compare the memory transactions in our tracer file
+* VM_TRACE_P - prints each TLB fill
+  * Very useful, can be used to compare the memory transactions in our tracer file
+* PC_PROFILE_P - prints pc information
+  * Shows frequency of PC that were ran. Not useful for us
+* BRANCH_PROFILE_P - prints branch information
+  * Not very useful
+* CORE_PROFILE_P - prints a cycle-accurate stall trace
+  * Useful in understanding what causes stalls 
 
 ### uarch traces
 - A cycle counter to synchronize with other tracers
 - Track issue, and dispatch packets (packets that enter the BE's scheduler and leave the issue queue)
-- Track when instructions are squashed (poison_isd_i, commit_pkt.npc_w_v)
+- Track when instructions are squashed (poison_isd_i)
+- Track all memory instructions
 - Track committed packets that cause an exception 
 - Track page faults that occur (from the memory pipeline)
 - Track priv faults that occur (from the page table walker)
@@ -40,6 +60,8 @@ We've combined the tracers into a single file in order to better understand the 
 - wbuf_v_li indicates a store hit is being written into the write buffer. maybe look for delays/potential bypass scenarios, affecting later load/store timing
 - wbuf_v_lo: indicates a buffered store is ready to be written from the write buffer into the actual data memory
 - wbuf_yumi_li : marks write buffer entry wbuf_v_lo completed
+
+
 
 ## Code
 
