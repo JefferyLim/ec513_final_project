@@ -14,8 +14,7 @@ We've consolidated the trace files into a single trace file. [Lines 210 and down
 
 After reviewing the microarchitecture and traces, we ultimately were unable to do any type of speculative execution, causing any microarchitectural leaks of privilege data. 
 
-Ultimately, this is a single issue design. We find out if we've mispredicted a branch one cycle into the calculator pipeline, and thus, a memory request will be unable to send data out. Note, we know that the instruction cache is able to speculatively fetch, but we did not include it in our list of traces.
-
+Ultimately, this is a single issue design. We find out if we've mispredicted a branch one cycle into the calculator pipeline, and thus, a memory request will be unable to send data out. Note, we know that the instruction cache is able to speculatively fetch, but we did not include it in our list of traces.=
 
 ## Tracers
 
@@ -63,14 +62,13 @@ In the case of not flushing the TLB
 
 7. (User mode) Successfully reads from memory, and is able to continue writing to memory location.
 
-
-## Finding Vulnerabilities and Example Traces
+## Interesting Discoveries
 
 So far, we have been unable to generate any trace where we can see microarchitectural changes due to branch mispredictions. 
 
-## Finding Anything Interesting
+However, we have found an interesting behavior due to a software bug, where not flushing the TLB causes the user to continue reading from memory that is privileged. This is considered more of a software bug than hardware, as we read that it is the software that is responsible for flushing the TLB. We discovered this due to the Dromajo emulator and the verilator simulation showing different behavior. Dromajo shows that a privilege fault should occur, but the verilator simulation does not show that. We will be going over this example in our presentation. 
 
-We actually have found one interesting behavior where the Dromajo emulator and the verilator simulation shows different behavior. It's quite interesting because it is an example of buggy software. Dromajo shows that a privilege fault should occur, but the verilator simulation does not show that. We will be going over this example in our presentation.
+We actually have found one interesting behavior where 
 
 ## Understanding of Faults
 
