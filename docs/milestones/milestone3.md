@@ -93,7 +93,8 @@ However, we have found an interesting behavior due to a software bug, where not 
 
 ## Example Traces
 
-Here is a trace of the steps that get taken during a fault. In purple, we've highlighted the ldispatch of a read instruction by the user for addres 0x8040_0000.
+Here is a trace of the steps that get taken during a fault. In purple, we've highlighted the dispatch of a read instruction by the user for addres 0x8040_0000. Note that this trace is one of the earlier traces. We're going through and cleaning up the trace file to be a bit cleaner.
 
 Because the memory pipeline can't find the TLB entry, it is forced to do a page table walk (highlighted in blue). It goes through the 3 page tables, where it eventually retrieves the PTE highlighted in orange. This entry 0x201000cf has the U bit deasserted. We see that the dispatch of the same instruction goes through, but the ocmmit instruction has an exception, thus, a pipe flush occurs, and no other requests leave/enter the memory pipeline.
+
 ![image](https://github.com/user-attachments/assets/7c8d79cc-f7fc-4021-9c89-5336ba3bfbc9)
