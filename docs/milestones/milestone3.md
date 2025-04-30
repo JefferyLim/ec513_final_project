@@ -88,18 +88,11 @@ In the case of not flushing the TLB
 
 So far, we have been unable to generate any trace where we can see microarchitectural changes due to branch mispredictions. 
 
-However, we have found an interesting behavior due to a software bug, where not flushing the TLB causes the user to continue reading from memory that is privileged. This is considered more of a software bug than hardware, as we read that it is the software that is responsible for flushing the TLB. We discovered this due to the Dromajo emulator and the verilator simulation showing different behavior. Dromajo shows that a privilege fault should occur, but the verilator simulation does not show that. We will be going over this example in our presentation. 
+However, we have found an interesting behavior due to a software bug, where not flushing the TLB causes the user to continue reading from memory that is privileged. This is considered more of a software bug than hardware, as we read that it is the software that is responsible for flushing the TLB. We discovered this due to the Dromajo emulator and the verilator simulation showing different behavior. Dromajo shows that a privilege fault should occur, but the verilator simulation does not show that. We will be going over this example in our presentation.  
 
-We actually have found one interesting behavior where 
+## Example Traces
 
-## Understanding of Faults
+Here is a trace of the steps that get taken during a fault. In purple, we've highlighted the ldispatch of a read instruction by the user for addres 0x8040_0000.
 
-We've parsed the micro-architecture as follows:
-
-1. A virtual address goes through the memory pipeline's MMU -> TLB
-2. If unsuccessful, this is a dcache miss, and a page table walk must be executed
-3. A page table walk is done at the end of the pipeline, so it occurs when the commit packet reaches the scheduler
-4. Here, the system stalls until the page table walker is finished
-5. The privileges are checked, and if they do not pass, an exception occurs
-6. The pipeline is pushed through with an exception in the dispatch queue
-7. The system pipeline's CSR will trigger an exception, causing a change in PC to the correct handler
+Because the memory pipeline can't find the TLB entry, it is forced to do a page table walk (highlighted in blue). It goes through the 3 page tables, where it eventually retrieves the PTE highlighted in orange. This entry 0x201000cf has the U bit deasserted. We see that the dispatch of the same instruction goes through, but the ocmmit instruction has an exception, thus, a pipe flush occurs, and no other requests leave/enter the memory pipeline.
+![image](https://github.com/user-attachments/assets/7c8d79cc-f7fc-4021-9c89-5336ba3bfbc9)
