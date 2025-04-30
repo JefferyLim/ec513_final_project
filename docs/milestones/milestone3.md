@@ -116,3 +116,8 @@ As a result, all the accesses after, until the `s_repage_secret` (green) functio
 
 Here is the cleaned up tracer:
 ![image](https://github.com/user-attachments/assets/7576b9b3-a1af-4d50-907b-61556112e398)
+
+
+## Tracking the microarchitectural states
+
+In general, we believe that tracking the requests and returns from the memory pipeline should give us enough information in THIS architecture to know if there are any transient information left over. If we were to have a more complex, or out-of-order design, we would have to better track all the information. 
