@@ -3,25 +3,25 @@
 # Relevant Commits
 
 Here are the contributions to this milestone.
+https://github.com/JefferyLim/black-parrot/pull/4
 
 https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c
 
 
-# Outcomes
+# Milestone 3
 
-We've been able to successfully cause exceptions to occur due to a user program attempting to read memory from an unprivileged area of memory. We should be able to track:
+We've consolidated the trace files into a single trace file. [Lines 210 and down](https://github.com/JefferyLim/black-parrot/blob/8892cf1caa29051b54ed5e7c003a3cc70753d144/bp_top/test/common/bp_nonsynth_uarch_tracer.sv#L210) cover the new tracer file, named `uarch_0.trace`. 
 
-1. Architectural memory reads and their privilege levels
-2. Detection of unprivileged accesses
-3. Track what read information gets retreived from cache
+After reviewing the microarchitecture and traces, we ultimately were unable to do any type of speculative execution, causing any microarchitectural leaks of privilege data. 
 
-We do not have a way of determining if an address is a privileged location unless we already know ahead of time.
+Ultimately, this is a single issue design. We find out if we've mispredicted a branch one cycle into the calculator pipeline, and thus, a memory request will be unable to send data out. Note, we know that the instruction cache is able to speculatively fetch, but we did not include it in our list of traces.
+
 
 ## Tracers
 
 We've combined the tracers into a single file in order to better understand the flow. Originally, we were going to have separate tracers, but decided that we can just combine them within the SystemVerilog file. 
 
-### uarch_tracer
+### uarch traces
 - A cycle counter to synchronize with other tracers
 - Track issue, and dispatch packets (packets that enter the BE's scheduler and leave the issue queue)
 - Track when instructions are squashed (poison_isd_i, commit_pkt.npc_w_v)
@@ -30,8 +30,7 @@ We've combined the tracers into a single file in order to better understand the 
 - Track priv faults that occur (from the page table walker)
 - Track privilege modes (m, s, u)
 
-### cache_tracer
-### Data Cache:
+### DCache traces
 - cache_req_v_o: indicates a cache miss or uncached request is being sent out to the next level - LCE
 - cache_req_yumi_i: signals that the LCE has accepted the outgoing request from cache_req_v_o
 - cache_req_metadata_v_o: valid signal for metadata (like replacement way, dirty status) being sent out on a miss.  potentially interesting for info about the cache's internal state 
@@ -43,16 +42,27 @@ We've combined the tracers into a single file in order to better understand the 
 - wbuf_v_lo: indicates a buffered store is ready to be written from the write buffer into the actual data memory
 - wbuf_yumi_li : marks write buffer entry wbuf_v_lo completed
 
-### Icache:
-- icache_pkt_i: carries the incoming fetch request, including the virtual address (.vaddr) and crucially the speculation flag (.spec). tells you if and what address is being requested -speculatively.
-- data_o: holds the instruction data returned on a hit
-- cache_req_o: contains the request sent to the next level cache/memory on a miss or uncached access. shows if a speculative access that missed might have propagated
-- data_mem_pkt_i: takes fill data coming back from the cache engine. confirms that a cache line was allocated/filled. maybe keep an eye for a speculative miss case.
-- tag_mem_pkt_i:  tag and state updates coming back from the cache engine. it signals a state change possibly triggered speculatively?
-
 ## Code
 
-Last milestone, we created a [virtual_memory.c](https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c) program that maps pages and sets the privilege level (User or Supervisor level). We've cleaned it up and updated it.
+Last milestone, we created a [virtual_memory.c](https://github.com/JefferyLim/black-parrot-sim/blob/ec513/sw/virtual_memory.c) program that maps pages and sets the privilege level (User or Supervisor level). We've cleaned it up and updated it to include some other cases. The flow of software we tested was:
+
+1. (Machine mode) Set up memory spaces and enable virtual memory. We allocate an address (0x8040_0000) to be user accessible.
+2. (Machine mode) Write some data (0x8badf00ddeadbeef) into this address.
+3. (Machine mode) Launch user test program
+4. (User mode) Successfully reads from the address (0x8040_0000)
+5. (User mode) Launches a Syscall
+6. (Supervisor mode) Update PTE
+6a. (Supervisor mode) Flushes the TLB
+6b. (Supervisor mode) Does NOT flush the TLB
+
+From here, the code behavior diverges. In the case of flushing the TLB
+
+7. (User mode) Attempts to read again from the address, only to be blocked
+
+In the case of not flushing the TLB
+
+7. (User mode) Successfully reads from memory, and is able to continue writing to memory location.
+
 
 ## Finding Vulnerabilities and Example Traces
 
