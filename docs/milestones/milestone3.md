@@ -98,3 +98,18 @@ Here is a trace of the steps that get taken during a fault. In purple, we've hig
 Because the memory pipeline can't find the TLB entry, it is forced to do a page table walk (highlighted in blue). It goes through the 3 page tables, where it eventually retrieves the PTE highlighted in orange. This entry 0x201000cf has the U bit deasserted. We see that the dispatch of the same instruction goes through, but the ocmmit instruction has an exception, thus, a pipe flush occurs, and no other requests leave/enter the memory pipeline.
 
 ![image](https://github.com/user-attachments/assets/7c8d79cc-f7fc-4021-9c89-5336ba3bfbc9)
+
+
+### Cleaned up Trace
+Here is the assembly code:
+
+The yellow represents the address of the privileged location. 
+
+In orange, we update the PTE so we remove user permissions, but do not flush the TLB (`s_incorrect_flush`)
+
+As a result, all the accesses after, until the `s_repage_secret` (green) function, will still work, unless the TLB gets updated with the correct PTE.
+
+![image](https://github.com/user-attachments/assets/3eeba606-f5a3-41b5-a317-4fa12bbdc867)
+
+Here is the cleaned up tracer:
+![image](https://github.com/user-attachments/assets/7576b9b3-a1af-4d50-907b-61556112e398)
